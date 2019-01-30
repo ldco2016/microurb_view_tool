@@ -21,19 +21,23 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
-before_action :set_copyright
+class ApplicationController < ActionController::Base
+  protect_from_forgery with: :exception
 
- def set_copyright
-   @copyright = MicrourbViewTool::Renderer.copyright '[Your Name]', 'All rights reserved'
- end
+  before_action :set_copyright
+
+  def set_copyright
+    @copyright = MicrourbViewTool::Renderer.copyright 'Daniel Cortes', 'All rights reserved'
+  end
 end
 
 module MicrourbViewTool
- class Renderer
-   def self.copyright name, msg
-     "&copy; #{Time.now.year} | <b>#{name}</b> #{msg}".html_safe
-   end
- end
+  class Renderer
+    def self.copyright name, msg
+      "&copy; #{Time.now.year} | <b>#{name}</b> #{msg}".html_safe
+    end
+  end
+end
 ```
 
 ## Development
