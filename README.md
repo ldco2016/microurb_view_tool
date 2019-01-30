@@ -30,14 +30,6 @@ class ApplicationController < ActionController::Base
     @copyright = MicrourbViewTool::Renderer.copyright '[Your Name]', 'All rights reserved'
   end
 end
-
-module MicrourbViewTool
-  class Renderer
-    def self.copyright name, msg
-      "&copy; #{Time.now.year} | <b>#{name}</b> #{msg}".html_safe
-    end
-  end
-end
 ```
 
 ## Development
