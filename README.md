@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
   before_action :set_copyright
 
   def set_copyright
-    @copyright = MicrourbViewTool::Renderer.copyright 'Daniel Cortes', 'All rights reserved'
+    @copyright = MicrourbViewTool::Renderer.copyright '[Your Name]', 'All rights reserved'
   end
 end
 
