@@ -21,8 +21,20 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
- MicrourbViewTool::Renderer.copyright 'Daniel Cortes', 'All rights reserved'
- ```
+before_action :set_copyright
+
+ def set_copyright
+   @copyright = MicrourbViewTool::Renderer.copyright '[Your Name]', 'All rights reserved'
+ end
+end
+
+module MicrourbViewTool
+ class Renderer
+   def self.copyright name, msg
+     "&copy; #{Time.now.year} | <b>#{name}</b> #{msg}".html_safe
+   end
+ end
+```
 
 ## Development
 
